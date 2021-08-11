@@ -233,7 +233,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 		return;
 	}
 
-	XCDYouTubeLogDebug(@"Starting request: %@", [request URL]);
+	//XCDYouTubeLogDebug(@"Starting request: %@", [request URL]);
 
 	[request setValue:self.languageIdentifier forHTTPHeaderField:@"Accept-Language"];
 	[request setValue:[NSString stringWithFormat:@"https://youtube.com/watch?v=%@", self.videoIdentifier] forHTTPHeaderField:@"Referer"];
