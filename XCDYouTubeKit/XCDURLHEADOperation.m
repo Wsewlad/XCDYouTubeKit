@@ -66,7 +66,7 @@
 	if (self.isCancelled)
 		return;
 	
-	XCDYouTubeLogInfo(@"Starting URL HEAD operation: %@", self);
+//	XCDYouTubeLogInfo(@"Starting URL HEAD operation: %@", self);
 	
 	self.isExecuting = YES;
 	
@@ -82,7 +82,7 @@
 		self.response = response;
 		self.error = error;
 		
-		XCDYouTubeLogVerbose(@"%@ Response: %@", self, self.response);
+//		XCDYouTubeLogVerbose(@"%@ Response: %@", self, self.response);
 		
 		if (self.error)
 		{
@@ -90,7 +90,7 @@
 		}
 		else
 		{
-			XCDYouTubeLogInfo(@"URL HEAD operation finished with success");
+//			XCDYouTubeLogInfo(@"URL HEAD operation finished with success");
 		}
 		
 		self.isExecuting = NO;
@@ -108,7 +108,7 @@
 	
 	[super cancel];
 	
-	XCDYouTubeLogInfo(@"Canceling URL HEAD operation: %@", self);
+//	XCDYouTubeLogInfo(@"Canceling URL HEAD operation: %@", self);
 	
 	[self.dataTask cancel];
 	

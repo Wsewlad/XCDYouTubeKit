@@ -65,7 +65,7 @@
 	if (self.isCancelled)
 		return;
 	
-	XCDYouTubeLogInfo(@"Starting URL GET operation: %@", self);
+//	XCDYouTubeLogInfo(@"Starting URL GET operation: %@", self);
 	
 	self.isExecuting = YES;
 	
@@ -77,7 +77,7 @@
 	if (self.isCancelled || self.isFinished)
 		return;
 	
-	XCDYouTubeLogInfo(@"Canceling URL GET operation: %@", self);
+//	XCDYouTubeLogInfo(@"Canceling URL GET operation: %@", self);
 	
 	[super cancel];
 	
@@ -109,7 +109,7 @@
 	self.isExecuting = NO;
 	self.isFinished = YES;
 	[self.session invalidateAndCancel];
-	XCDYouTubeLogInfo(@"URL GET operation finished");
+//	XCDYouTubeLogInfo(@"URL GET operation finished");
 }
 
 #pragma mark -
@@ -124,8 +124,8 @@
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
 	[request addValue:[NSString stringWithFormat:@"bytes=%@-%@", @(rangeStart), @(rangeEnd)] forHTTPHeaderField:@"Range"];
 	
-	XCDYouTubeLogDebug(@"Starting URL GET operation with URL: %@", self.url);
-	XCDYouTubeLogInfo(@"URL GET request: %@", request.description);
+//	XCDYouTubeLogDebug(@"Starting URL GET operation with URL: %@", self.url);
+//	XCDYouTubeLogInfo(@"URL GET request: %@", request.description);
 
 	self.dataTask = [self.session dataTaskWithRequest:request];
 	
@@ -169,7 +169,7 @@
 - (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)dataTask didCompleteWithError:(NSError *)error
 {
 	self.response = dataTask.response;
-	XCDYouTubeLogVerbose(@"%@ Response: %@", self, self.response);
+//	XCDYouTubeLogVerbose(@"%@ Response: %@", self, self.response);
 	if (self.isCancelled)
 		return;
 	

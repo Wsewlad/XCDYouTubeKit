@@ -199,7 +199,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 		return;
 	}
 	
-	XCDYouTubeLogDebug(@"Starting request: %@", url);
+//	XCDYouTubeLogDebug(@"Starting request: %@", url);
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
 	[request setValue:self.languageIdentifier forHTTPHeaderField:@"Accept-Language"];
@@ -319,7 +319,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 
 - (void) handleVideoInfoResponseWithInfo:(NSDictionary *)info response:(NSURLResponse *)response
 {
-	XCDYouTubeLogDebug(@"Handling video info response");
+//	XCDYouTubeLogDebug(@"Handling video info response");
 	
 	NSError *error = nil;
 	XCDYouTubeVideo *video = [[XCDYouTubeVideo alloc] initWithIdentifier:self.videoIdentifier info:info playerScript:self.playerScript response:response error:&error];
@@ -357,7 +357,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 
 - (void) handleWebPageWithHTMLString:(NSString *)html
 {
-	XCDYouTubeLogDebug(@"Handling web page response");
+//	XCDYouTubeLogDebug(@"Handling web page response");
 	
 	self.webpage = [[XCDYouTubeVideoWebpage alloc] initWithHTMLString:html];
 	
@@ -381,7 +381,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 
 - (void) handleEmbedWebPageWithHTMLString:(NSString *)html
 {
-	XCDYouTubeLogDebug(@"Handling embed web page response");
+//	XCDYouTubeLogDebug(@"Handling embed web page response");
 	
 	self.embedWebpage = [[XCDYouTubeVideoWebpage alloc] initWithHTMLString:html];
 	
@@ -397,7 +397,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 
 - (void) handleJavaScriptPlayerWithScript:(NSString *)script
 {
-	XCDYouTubeLogDebug(@"Handling JavaScript player response");
+//	XCDYouTubeLogDebug(@"Handling JavaScript player response");
 	
 	self.playerScript = [[XCDYouTubePlayerScript alloc] initWithString:script customPatterns:self.customPatterns];
 	
@@ -418,7 +418,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 
 - (void) handleDashManifestWithXMLString:(NSString *)XMLString response:(NSURLResponse *)response
 {
-	XCDYouTubeLogDebug(@"Handling Dash Manifest response");
+//	XCDYouTubeLogDebug(@"Handling Dash Manifest response");
 	
 	XCDYouTubeDashManifestXML *dashManifestXML = [[XCDYouTubeDashManifestXML alloc]initWithXMLString:XMLString];
 	NSDictionary *dashhManifestStreamURLs = dashManifestXML.streamURLs;
@@ -433,8 +433,8 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 - (void) finishWithVideo:(XCDYouTubeVideo *)video
 {
 	self.video = video;
-	XCDYouTubeLogInfo(@"Video operation finished with success: %@", video);
-	XCDYouTubeLogDebug(@"%@", ^{ return video.debugDescription; }());
+//	XCDYouTubeLogInfo(@"Video operation finished with success: %@", video);
+//	XCDYouTubeLogDebug(@"%@", ^{ return video.debugDescription; }());
 	[self finish];
 }
 
@@ -482,7 +482,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 		XCDYouTubeLogWarning(@"Video identifier length should be 11. [%@]", self.videoIdentifier);
 	}
 	
-	XCDYouTubeLogInfo(@"Starting video operation: %@", self);
+//	XCDYouTubeLogInfo(@"Starting video operation: %@", self);
 	
 	self.isExecuting = YES;
 	
@@ -495,7 +495,7 @@ static NSError *YouTubeError(NSError *error, NSSet *regionsAllowed, NSString *la
 	if (self.isCancelled || self.isFinished)
 		return;
 	
-	XCDYouTubeLogInfo(@"Canceling video operation: %@", self);
+//	XCDYouTubeLogInfo(@"Canceling video operation: %@", self);
 	
 	[super cancel];
 	

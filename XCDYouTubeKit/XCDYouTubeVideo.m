@@ -93,9 +93,9 @@ NSDictionary *XCDDictionaryWithQueryString(NSString *string)
 			value = [value stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 			if (dictionary[key] && ![(NSObject *)dictionary[key] isEqual:value])
 			{
-				XCDYouTubeLogWarning(@"Using XCDDictionaryWithQueryString is inappropriate because the query string has multiple values for the key '%@'\n"
-									 @"Query: %@\n"
-									 @"Discarded value: %@", key, string, dictionary[key]);
+//				XCDYouTubeLogWarning(@"Using XCDDictionaryWithQueryString is inappropriate because the query string has multiple values for the key '%@'\n"
+//									 @"Query: %@\n"
+//									 @"Discarded value: %@", key, string, dictionary[key]);
 			}
 			dictionary[key] = value;
 		}

@@ -104,7 +104,7 @@
 	if (self.isCancelled)
 		return;
 	
-	XCDYouTubeLogInfo(@"Starting query operation: %@", self);
+//	XCDYouTubeLogInfo(@"Starting query operation: %@", self);
 	
 	self.isExecuting = YES;
 	[self startQuery];
@@ -115,7 +115,7 @@
 	if (self.isCancelled || self.isFinished)
 		return;
 	
-	XCDYouTubeLogInfo(@"Canceling query operation: %@", self);
+//	XCDYouTubeLogInfo(@"Canceling query operation: %@", self);
 	
 	[super cancel];
 	
@@ -130,7 +130,7 @@
 
 - (void) startQuery
 {
-	XCDYouTubeLogDebug(@"Starting query request for video: %@", self.video);
+//	XCDYouTubeLogDebug(@"Starting query request for video: %@", self.video);
 	
 	NSMutableArray <XCDURLHEADOperation *>*HEADOperations = [NSMutableArray new];
 	//Always use the `video` to check if it's a live stream (clients might not include `XCDYouTubeVideoQualityHTTPLiveStreaming` in `streamURLsToQuery`)
@@ -226,7 +226,7 @@
 		[self finishWithError:error];
 		return;
 	}
-	XCDYouTubeLogInfo(@"Query operation finished with success: %@", streamURLs);
+//	XCDYouTubeLogInfo(@"Query operation finished with success: %@", streamURLs);
 	self.streamURLs = [streamURLs copy];
 	[self finish];
 }
